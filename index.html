@@ -27,19 +27,66 @@
       
 
     <script>
-
+        
+        //variables:
         var start = document.getElementById("start");
         var quiz = document.getElementById("quiz"); 
+        var qImg = document.getElementById("qImg");
         var question = document.getElementById("question");
         var timer = document.getElementById("timer");
         var choices = document.getElementById("choices");
         var choiceA = document.getElementById("A");
         var choiceB = document.getElementById("B");
-        var choicec = document.getElementById("C");
+        var choiceC = document.getElementById("C");
         var choiceD = document.getElementById("D");
         var score = document.getElementById("score");
 
+        var lastQIndex = questions.length-1;
+        var runningQIndex = 0;
 
+        //questions in an array of objects: 
+        var questions = [
+            {
+                question: "Q1?",
+                imgSrc: " ",
+                choiceA: "A",
+                choiceB: "B",
+                choiceC: "C",
+                choiceD: "D",
+                answer: "A",
+            },
+            {
+                question: "Q2?",
+                imgSrc: " ",
+                choiceA: "A",
+                choiceB: "B",
+                choiceC: "C",
+                choiceD: "D",
+                answer: "B",
+            },
+            {
+                question: "Q3?",
+                imgSrc: " ",
+                choiceA: "A",
+                choiceB: "B",
+                choiceC: "C",
+                choiceD: "D",
+                answer: "C",
+            },
+        ];
+
+        //functions: 
+        https://www.youtube.com/watch?v=49pYIMygIcU //5.00
+        function askQuestion() { 
+            let q = questions[runningQIndex]; 
+            qImg.innerHTML = "<img src=" + q.imgSrc + ">";
+            question.innerHTML = "<p>" + q.question + "</p>";
+            choiceA.innerHTML = "<p>" + q.choiceA + "</p>";
+            choiceB.innerHTML = "<p>" + q.choiceB + "</p>";
+            choiceC.innerHTML = "<p>" + q.choiceC + "</p>";
+            choiceD.innerHTML = "<p>" + q.choiceD + "</p>";
+
+        }
 
 
     </script>
