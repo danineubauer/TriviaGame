@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Trivia Game</title>
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+
+<body>
+
+        <div id="start">Start Quiz</div>
+        <div id="quiz" style="display: none;">
+            <div id="qImg"> <img src="img.png"> </div>
+            <div id="question"><p>Question</p></div>
+                <div id="timer"></div>
+                <div id="choices">
+                    <div class="choice" id="A" onclick="checkAnswer('A')">a</div>
+                    <div class="choice" id="B" onclick="checkAnswer('A')">a</div>
+                    <div class="choice" id="C" onclick="checkAnswer('A')">a</div>
+                </div>     
+        </div>
+        <div id="score"></div>
+      
+
+    <script>
+
+        var start = document.getElementById("start");
+        var quiz = document.getElementById("quiz"); 
+        var question = document.getElementById("question");
+        var timer = document.getElementById("timer");
+        var choices = document.getElementById("choices");
+        var choiceA = document.getElementById("A");
+        var choiceB = document.getElementById("B");
+        var choicec = document.getElementById("C");
+        var choiceD = document.getElementById("D");
+        var score = document.getElementById("score");
+
+
+
+
+    </script>
+</body>
+
+</html>
