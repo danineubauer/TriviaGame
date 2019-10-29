@@ -30,6 +30,7 @@ const descriptions = [
 var questionAnsweredLive = 0;
 var score = 0;
 var seconds = 30;
+var gameOver = false;
 
 //variables change in response to change of changing variables:
 //determines the right answer for each question based on the question being answered:
@@ -54,28 +55,50 @@ const initiation = function (a) {
 };
 
 const start = function() {
-    document.removeEventListener("keyup", initiation);
-    $("#timer").text("00:" + seconds);
-    $("#questionNumber").text("Question #" + (questionAnsweredLive+1));
-    $("#questionInsert").text(Question);
-    //loop through answers: 
-    for (let index = 1; index < answers.length; index++) {
-        $("#answersInsert").append("<div><button type='button' id=" + (index) + ">" + Answers[index] + "</div>");
+    while (gameOver !==true) {
+        document.removeEventListener("keyup", initiation);
+        $("#timer").text("00:" + seconds);
+        $("#questionNumber").text("Question #" + (questionAnsweredLive+1));
+        $("#questionInsert").text(Question);
+        //loop through answers: 
+        for (let index = 1; index < answers.length; index++) {
+            $("#answersInsert").append("<div><button type='button'  id=" + (index) + " class='answerButton'>" + Answers[index] + "</div>");
+        }
+        $("#yourScore").text("Your score: " + score);
+        return checkAnswer(); 
     }
-    $("#yourScore").text("Your score: " + score);
 }
 
-var logic = function () {
+//event listener:
+var checkAnswer = function() {
+    $(".answerButton").click(function(event) {
+        console.log(event.target.id);
+        console.log(indexOfTheAnswer);
 
+        if (event.target.id == indexOfTheAnswer) {
+            console.log("yas");
+            gotAnswerCorrect();
+        } else {
+            console.log("no");
+            gotAnswerWrong(); 
+        }
+    })
 }
+
+
+// $(document).on("click", ".answerButton", checkAnswer);
+// var checkAnswer = function() {
+//     console.log("event.target.id" + event.target.id);
+//     if (event.target.id === indexOfTheAnswer) { 
+//         console.log("answer right!");
+//     } else { 
+//         console.log("wrong");
+//     }
+// }
 
 
 // $(document).on("click", ".choice", checkAnswer);
 
-var checkAnswer = function () {
-    if (answers[0] === answers[answers[0]]) {
-        console.log('correct!');
-    }
-}
+
 
 document.addEventListener('keyup', initiation); 
