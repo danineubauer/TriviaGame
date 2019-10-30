@@ -35,8 +35,7 @@ var seconds = 30;
 var seconds2 = 5; 
 var timer; 
 var timer2; 
-var wrong = 0; 
-var right = 0; 
+ 
 
 
 //variables change in response to change of changing variables:
@@ -117,6 +116,7 @@ function shortTimer() {
     
 }
 
+function descriptionPage() { }
 
 
 
