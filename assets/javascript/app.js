@@ -63,13 +63,14 @@ function startNewGame() {
     $("#answeredRightOrWrong").text(" "); 
     clearInterval(timer2);
     timesPlayed++; 
-    if (timesPlayed < questions.length-1) { 
+    if (timesPlayed < questions.length) { 
+        document.removeEventListener("keyup", startNewGame);
         numberOfQuestion++
         $("answersInsert").empty(); 
         renderQA (questions[timesPlayed], answers[timesPlayed] );
         timerRun(); 
         questionAnsweredLive++;
-    } if (timesPlayed === questions.legth) { 
+    } if (timesPlayed >= questions.legth) { 
         gameOver(); 
     }
 };
@@ -113,12 +114,20 @@ function shortTimer() {
     timer2 = setInterval(decrement2, 1000);
     document.addEventListener("keyup", startNewGame);
     document.removeEventListener("keyup", startNewGame);
+    moveToNextPage();
     
 }
 
-function descriptionPage() { }
+//move to next page:
+const moveToNextPage = function() {
+    document.addEventListener("keyup", startNewGame);
+ }
 
-
+//  if (a.code === 'Space') {
+//     document.getElementById('initiation').innerHTML = '';
+//     document.getElementById('explination').innerHTML = '';
+//     document.removeEventListener("keyup", initiation);
+//     return startNewGame();
 
 //the page with the descriptions: 
 function decrement2() { 
