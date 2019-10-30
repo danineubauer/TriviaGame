@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Trivia Game</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/style.css">
@@ -12,18 +13,31 @@
 
 <body>
 
-    <h1>San Francisco Trivia Game</h1>
-    <h2 id='explination'>Explination</h2>
-    <h2 id="initiation">Press space to start</h2>
+    <div class="container">
+        <div class="row">
 
-    <h2 id="timer"></h2>
+            <h1>San Francisco Trivia Game</h1>
+            <h2 id='explination'>Explination</h2>
+            <h2 id="initiation">Press space to start</h2>
 
-    <h2 id="questionNumber"></h2>
-    <h2 id="questionInsert"></h2>
-    <h2 id="answeredRightOrWrong"></h2>
-    <h4 id="answersInsert"></h4>
-    <h4 id="description"></h4>
-    <h5 id="yourScore"></h5>
+        </div>
+        <div class="row">
+            
+                <h2 id="timer"></h2>
+            
+                <h2 id="questionNumber"></h2>
+                <h2 id="questionInsert"></h2>
+                <h2 id="answeredRightOrWrong"></h2>
+                <h4 id="answersInsert"></h4>
+                <h4 id="description"></h4>
+                <h5 id="yourScore"></h5>
+                <h5 id="pressSpace"></h5>
+
+
+        </div>
+
+
+    </div>
 
     <script text="text/javascript" src="assets/javascript/app.js">
 
