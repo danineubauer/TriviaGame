@@ -28,15 +28,23 @@ const descriptions = [
 
 //changing variables:  
 var questionAnsweredLive = 0;
+var timesPlayed = -1;
+var numberOfQuestion = 1;
 var score = 0;
 var seconds = 30;
-var gameOver = false;
+var seconds2 = 5; 
+var timer; 
+var timer2; 
+var wrong = 0; 
+var right = 0; 
+
 
 //variables change in response to change of changing variables:
 //determines the right answer for each question based on the question being answered:
 //right answers always on index 0
 var Question = questions[questionAnsweredLive];
 var Answers = answers[questionAnsweredLive];
+var Descriptions = descriptions[questionAnsweredLive];
 var indexOfTheAnswer = Number(answers[questionAnsweredLive][0]);
 var rightAnswer = answers[questionAnsweredLive][indexOfTheAnswer];
 var indexOfDescription = descriptions[questionAnsweredLive];
@@ -50,54 +58,131 @@ const initiation = function (a) {
     if (a.code === 'Space') {
         document.getElementById('initiation').innerHTML = '';
         document.getElementById('explination').innerHTML = '';
-        return start();
+        document.removeEventListener("keyup", initiation);
+        return startNewGame();
     }
 };
 
-const start = function() {
-    while (gameOver !==true) {
-        document.removeEventListener("keyup", initiation);
-        $("#timer").text("00:" + seconds);
-        $("#questionNumber").text("Question #" + (questionAnsweredLive+1));
-        $("#questionInsert").text(Question);
-        //loop through answers: 
-        for (let index = 1; index < answers.length; index++) {
-            $("#answersInsert").append("<div><button type='button'  id=" + (index) + " class='answerButton'>" + Answers[index] + "</div>");
-        }
-        $("#yourScore").text("Your score: " + score);
-        return checkAnswer(); 
+function startNewGame() {
+    $("#timer").text("00:" + seconds);
+    $("#answeredRightOrWrong").text(" "); 
+    clearInterval(timer2);
+    timesPlayed++; 
+    if (questionAnsweredLive < questions.length) { 
+        $("answersInsert").empty(); 
+        renderQA (questions[timesPlayed], answers[timesPlayed] );
+        timerRun(); 
+    } if (timesPlayed === questions.length) { 
+        gameOver(); 
+    }
+};
+
+//Adds questions and answers: 
+function renderQA (question, answer) {
+    $("#questionInsert").text(question); 
+    //loop through answers: 
+    for (let index = 1; index < answer.length; index++) {
+        $("#answersInsert").append("<div><button type='button'  id=" + (index) + " class='answerButton'>" + answer[index] + "</div>");
+    };
+};
+
+//runs timer for questions: 
+function timerRun() { 
+    clearInterval(timer); 
+    timer = setInterval(decrement, 1000); //decreases by second
+}; 
+
+//Question Timer: 
+function decrement() { 
+    seconds--; 
+    $("#timer").text("00:"+ seconds); 
+    if (seconds === 0) { 
+        wrong++; 
+        clearTimer();
+        shortTimer(false); 
     }
 }
 
-//event listener:
-var checkAnswer = function() {
-    $(".answerButton").click(function(event) {
-        console.log(event.target.id);
-        console.log(indexOfTheAnswer);
-
-        if (event.target.id == indexOfTheAnswer) {
-            console.log("yas");
-            gotAnswerCorrect();
-        } else {
-            console.log("no");
-            gotAnswerWrong(); 
-        }
-    })
+//short timer for right/wrong answer: 
+function shortTimer(boolean) { 
+    $("#questionInsert").empty(); 
+    $("#answersInsert").empty();
+    $("#yourScore").text("Your score: " + score + "/5");
+    $('#description').text(Descriptions);
+    timer2 = setInterval(decrement2, 1000);
 }
 
+//the page with the descriptions: 
+function decrement2() { 
+    seconds--; 
+    $("#timer").text("00:"+ seconds); 
+    if (seconds === 0) { 
+        clearTimer(); 
+        startNewGame(); 
+        timerRun(); 
+    }
+}
 
-// $(document).on("click", ".answerButton", checkAnswer);
-// var checkAnswer = function() {
-//     console.log("event.target.id" + event.target.id);
-//     if (event.target.id === indexOfTheAnswer) { 
-//         console.log("answer right!");
-//     } else { 
-//         console.log("wrong");
-//     }
-// }
+//clears the timer:
+function clearTimer() { 
+    clearInterval(timer); 
+    seconds = 30; 
+    $("#timer").text("00" + seconds); 
+}
+
+function logic() { 
+    if (timesPlayed < questions.length) { 
+
+    }    
+}
+
+    // questionAnsweredLive++;
+    // numberOfQuestion++;
+    // if (questionAnsweredLive < questions.length) {
+    //     console.log("questionAnsweredLive =", questionAnsweredLive);
+    //     console.log("numberOfQuestion =", numberOfQuestion);
+    //     $("#questionInsert").empty();
+
+    // } else if ( questionAnsweredLive === questions.length) { 
+    //     gameOver(); 
+    // }
 
 
-// $(document).on("click", ".choice", checkAnswer);
+        
+    // $("#timer").text("00:" + seconds);
+    // $("#questionNumber").text("Question #" + (questionAnsweredLive + 1));
+    // $("#questionInsert").text(Question);
+    // $("#yourScore").text("Your score: " + score + "/5");
+    // return checkAnswer();
+    // document.removeEventListener("keyup", initiation);
+
+
+//event listener:
+$(document).on("click", ".answerButton", checkAnswer);
+function checkAnswer() {
+        console.log(event.target.id);
+        console.log(indexOfTheAnswer);
+        if (event.target.id == indexOfTheAnswer) {
+            score++;
+            update();
+            $('#answeredRightOrWrong').text("Correct Answer!");
+        } else {
+            update();
+            $('#answeredRightOrWrong').text("Wrong Answer"); 
+        }
+    shortTimer();
+}
+
+var update = function () {
+
+    $("#qustionInsert").text(" ");
+    $("#answersInsert").text(" ");
+}
+
+function gameOver() { 
+    $("#questions").text("game Over");
+}
+
 
 
 
