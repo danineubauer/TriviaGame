@@ -5,8 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Trivia Game</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -14,116 +16,49 @@
 <body>
 
     <div class="container">
-            
-            <div class="row">
 
-                <div class="col-lg-12 col-md-12 col-sm-12 box col-xs-12">
-                    <div class="row">
-                        <h1>San Francisco Trivia Game</h1>
-                    </div>
-                    <div class="row">
-                        <h2 id='explination'>Explination</h2>
-                    </div>
-                    <div class="row">
+        <div class="row">
 
-                        <h2 id="initiation">Press space to start</h2>
-                    </div>
-                    
-                            </div>
-                            <div class="row">
-                                
-                                    <h2 id="timer"></h2>
-                                
-                                    <h2 id="questionNumber"></h2>
-                                    <h2 id="questionInsert"></h2>
-                                    <h2 id="answeredRightOrWrong"></h2>
-                                    <h4 id="answersInsert"></h4>
-                                    <h4 id="description"></h4>
-                                    <h5 id="yourScore"></h5>
-                                    <h5 id="pressSpace"></h5>
+            <div class="col-lg-12 col-md-12 col-sm-12 box col-xs-12">
+                <div class="row">
+                    <h1>San Francisco Trivia Game</h1>
+                </div>
+                <div class="row">
+                    <h2 id='explination'>Explination</h2>
+                </div>
+                <div class="row">
+                    <h2 id="initiation">Press space to start</h2>
+                </div>
+                <div class="row">
+                    <h2 id="timer"></h2>
+                </div>
+                <div class="row">
+                    <h2 id="questionNumber"></h2>
+                </div>
+                <div class="row">
+                    <h2 id="questionInsert"></h2>
+                </div>
+                <div class="row">
+                    <h2 id="answeredRightOrWrong"></h2>
+                </div>
+                <div class="row">
+                    <h4 id="answersInsert"></h4>
+                </div>
+                <div class="row">
+                    <h4 id="description"></h4>
+                </div>
+                <div class="row">
+                    <h5 id="yourScore"></h5>
 
-
-                </div>                
-
+                </div>
+                <div class="row">
+                    <h5 id="pressSpace"></h5>
+                </div>
+            </div>
         </div>
-
-
-        </div>
-
-
     </div>
 
-    <script text="text/javascript" src="assets/javascript/app.js">
-
-
-    
-
-
-
-
-
-        // //variables:
-        // var start = document.getElementById("start");
-        // var quiz = document.getElementById("quiz");
-        // var qImg = document.getElementById("qImg");
-        // var question = document.getElementById("question");
-        // var timer = document.getElementById("timer");
-        // var choices = document.getElementById("choices");
-        // var choiceA = document.getElementById("A");
-        // var choiceB = document.getElementById("B");
-        // var choiceC = document.getElementById("C");
-        // var choiceD = document.getElementById("D");
-        // var score = document.getElementById("score");
-
-        // var lastQIndex = questions.length - 1;
-        // var runningQIndex = 0;
-
-        // //questions in an array of objects: 
-        // var questions = [
-        //     {
-        //         question: "Q1?",
-        //         imgSrc: " ",
-        //         choiceA: "A",
-        //         choiceB: "B",
-        //         choiceC: "C",
-        //         choiceD: "D",
-        //         answer: "A",
-        //     },
-        //     {
-        //         question: "Q2?",
-        //         imgSrc: " ",
-        //         choiceA: "A",
-        //         choiceB: "B",
-        //         choiceC: "C",
-        //         choiceD: "D",
-        //         answer: "B",
-        //     },
-        //     {
-        //         question: "Q3?",
-        //         imgSrc: " ",
-        //         choiceA: "A",
-        //         choiceB: "B",
-        //         choiceC: "C",
-        //         choiceD: "D",
-        //         answer: "C",
-        //     },
-        // ];
-
-        // //functions: 
-        // https://www.youtube.com/watch?v=49pYIMygIcU //5.00
-        // function askQuestion() {
-        //     let q = questions[runningQIndex];
-        //     qImg.innerHTML = "<img src=" + q.imgSrc + ">";
-        //     question.innerHTML = "<p>" + q.question + "</p>";
-        //     choiceA.innerHTML = "<p>" + q.choiceA + "</p>";
-        //     choiceB.innerHTML = "<p>" + q.choiceB + "</p>";
-        //     choiceC.innerHTML = "<p>" + q.choiceC + "</p>";
-        //     choiceD.innerHTML = "<p>" + q.choiceD + "</p>";
-
-        // }
-
-
-    </script>
+    <script text="text/javascript" src="assets/javascript/app.js"></script>
 </body>
 
 </html>

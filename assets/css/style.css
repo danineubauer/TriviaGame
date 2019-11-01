@@ -22,3 +22,7 @@ body {
     background-color: white;
     opacity: 0.5;
 }
+
+.row { 
+    margin: 10px;
+}

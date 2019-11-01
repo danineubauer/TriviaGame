@@ -70,13 +70,17 @@ function startNewGame() {
         renderQA (questions[timesPlayed], answers[timesPlayed] );
         timerRun(); 
         questionAnsweredLive++;
-    } if (timesPlayed >= questions.legth) { 
+    } else { 
         gameOver(); 
     }
 };
 
 function gameOver() { 
     $("#questionInsert").text("game Over");
+    $("#questionNumber").text(" "); 
+    $("#answerRightOrWrong").text(" ");
+    $("#description").text(" "); 
+    $("#timer").text(" ");
 }
 
 //Adds questions and answers: 
@@ -98,8 +102,7 @@ function timerRun() {
 function decrement() { 
     seconds--; 
     $("#timer").text("00:"+ seconds); 
-    if (seconds === 0) { 
-        wrong++; 
+    if (seconds <= 0) { 
         clearTimer();
         shortTimer(); 
     }
