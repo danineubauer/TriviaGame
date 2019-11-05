@@ -9,8 +9,8 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="assets/css/reset.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/reset.css">
+        <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
@@ -19,21 +19,22 @@
 
         <div class="row">
 
-            <div class="col-lg-12 col-md-12 col-sm-12 box col-xs-12">
+            <div class="box col-lg-12 col-md-12 col-sm-12  col-xs-12">
+               
                 <div class="row">
                     <h1>San Francisco Trivia Game</h1>
                 </div>
+                <div class="class">
+                    <img id="gif">
+                </div>
                 <div class="row">
-                    <h2 id='explination'>Explination</h2>
+                    <h2 id='explination'></h2>
                 </div>
                 <div class="row">
                     <h2 id="initiation">Press space to start</h2>
                 </div>
                 <div class="row">
-                    <h2 id="timer"></h2>
-                </div>
-                <div class="row">
-                    <h2 id="questionNumber"></h2>
+                    <h2 class="questionNum" id="questionNumber"></h2>
                 </div>
                 <div class="row">
                     <h2 id="questionInsert"></h2>
@@ -49,7 +50,10 @@
                 </div>
                 <div class="row">
                     <h5 id="yourScore"></h5>
-
+                    
+                </div>
+                <div class="row timerContainer">
+                    <h3 class="timer" id="timer"></h3>
                 </div>
                 <div class="row">
                     <h5 id="pressSpace"></h5>

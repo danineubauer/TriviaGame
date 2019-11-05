@@ -20,9 +20,39 @@ body {
     height: 400px;  
     width: 600px; 
     background-color: white;
-    opacity: 0.5;
+    border-radius: 15px;
+    background: rgba(204, 204, 204, 0.5);
+    color: black;
 }
 
 .row { 
     margin: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+h1 { 
+    font-size: 50px;
+    color: black;
+    margin-top: 20marpx;
+    opacity: 100%;
+}
+
+h2 { 
+    font-size: 50px;
+}
+
+.btn { 
+    color: black;
+    border-color: black;
+    margin: 10px;
+}
+
+.timer { 
+    font-size: 30px;
+    margin: 0px;
+}
+
+.questionNum { 
+    font-size: 30px;
 }

@@ -88,7 +88,7 @@ function renderQA (question, answer) {
     $("#questionInsert").text(question); 
     //loop through answers: 
     for (let index = 1; index < answer.length; index++) {
-        $("#answersInsert").append("<div><button type='button'  id=" + (index) + " class='answerButton'>" + answer[index] + "</div>");
+        $("#answersInsert").append("<span> <button type='button' class='btn btn-info'  id=" + (index) + " class='answerButton'>" + answer[index] + "</button> </span>");
     };
 };
 
@@ -152,7 +152,7 @@ function clearTimer() {
 
 
 //event listener:
-$(document).on("click", ".answerButton", checkAnswer);
+$(document).on("click", ".btn", checkAnswer);
 function checkAnswer() {
     console.log(event.target.id);
     console.log(indexOfTheAnswer);
