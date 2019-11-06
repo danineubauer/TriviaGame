@@ -52,7 +52,7 @@ const initiation = function (a) {
     if (a.code === 'Space') {
         document.getElementById('initiation').innerHTML = '';
         document.removeEventListener("keyup", initiation);
-        return startNewGame();
+        return startNewGame();   
     }
 };
 
@@ -83,7 +83,13 @@ function gameOver() {
     $("#answerRightOrWrong").text(" ");
     $("#description").text(" "); 
     $("#timer").empty();
+    $("#playAgainBtn").append("<button onclick='playAgain()'>Click to Play Again</button>");
+}; 
+
+function playAgain() { 
+    window.location.reload(); 
 }
+
 
 //Adds questions and answers: 
 function renderQA (question, answer) {
