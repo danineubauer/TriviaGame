@@ -1,7 +1,7 @@
 
 
 
-body { 
+/* body { 
     background-image: url("../images/background photo.jpg");
     background-size: 50%;
     background-repeat: no-repeat;
@@ -11,6 +11,18 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
     height: 690px;
+} */
+
+body { 
+    background: url( ../images/background-photo.jpg) no-repeat center center fixed;
+    -webkit-background-size:
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family:'Playfair Display', serif;
+    font-size: 30px;
+    text-shadow: 2px;
+    margin-left: 30px;
 }
 
 .box { 
