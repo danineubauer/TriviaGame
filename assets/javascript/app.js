@@ -62,6 +62,7 @@ function startNewGame() {
     $("#questionNumber").text("Question #" + numberOfQuestion); 
     $("#answeredRightOrWrong").text("");
     $("#description").text("");
+    clearTimer(); 
     clearInterval(timer2);
     timesPlayed++; 
     if (timesPlayed < questions.length) { 
@@ -112,9 +113,6 @@ function decrement() {
     }
 }
 
-
-
-
 //short timer for right/wrong answer: 
 function shortTimer() { 
     console.log("shortTimer");
@@ -122,8 +120,7 @@ function shortTimer() {
     timer2 = setInterval(decrement2, 1000);
     document.addEventListener("keyup", startNewGame);
     document.removeEventListener("keyup", startNewGame);
-    moveToNextPage();
-    
+    moveToNextPage();  
 }
 
 //move to next page:
@@ -131,7 +128,9 @@ const moveToNextPage = function() {
     console.log("moveToNextPage");
     document.addEventListener("keyup", startNewGame);
     timerRun();
- }
+    TimerRun();
+    clearTimer();
+}
 
 //for the page with the descriptions: 
 function decrement2() { 
@@ -175,6 +174,7 @@ function checkAnswer() {
         $('#answersInsert').text("");
     }
     shortTimer(); 
+    clearTimer(); 
 }
 
 
