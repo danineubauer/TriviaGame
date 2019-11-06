@@ -1,18 +1,4 @@
 
-
-
-/* body { 
-    background-image: url("../images/background photo.jpg");
-    background-size: 50%;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    height: 690px;
-} */
-
 body { 
     background: url( ../images/background-photo.jpg) no-repeat center center fixed;
     -webkit-background-size:
@@ -29,7 +15,7 @@ body {
     margin-top: 70px;
     margin-left: 40px;
     margin-right: 40px;
-    height: 400px;  
+    height: 450px;  
     width: 600px; 
     background-color: white;
     border-radius: 15px;
@@ -37,6 +23,9 @@ body {
     color: black;
 }
 
+p { 
+    font-size: 20px;
+}
 .row { 
     margin: 10px;
     display: flex;

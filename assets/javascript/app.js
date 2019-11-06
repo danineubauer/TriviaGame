@@ -5,7 +5,7 @@ const questions = [
     'In which Pier can you find sea lions?',
     'What is the highest tower in San Francisco?',
     'How many hills was San Francisco built on?',
-    'What was San Francisco called before it was renamed in 1846?',
+    'What was San Francisco called before it was renamed',
     'What color is the Golden Gate Bridge?',
 ];
 
@@ -18,11 +18,11 @@ const answers = [
 ];
 
 const descriptions = [
-    'There are many interesting attractions at Fisherman\'s Wharf, including the Maritime Museum and the Historic Ships Pier. There is even a merry-go-round here',
+    'There are many interesting attractions at Fisherman\'s Wharf, including sea lions',
     'The SalesForce tower rises 1,070ft and is the 13th tallest building in the US.',
-    'The city is built on more than 50 hills. Many believe it only has 7 or 9 hills, but there are a total of more than 50 named hills. Some of the most well known are Russian Hill, Nob Hill, Telegraph Hill, and Twin Peaks. A few of the lesser known ones are Golden Mine Hill, Excelsior Heights, and Tank Hill.',
-    'Before it was renamed to San Francisco, this small city by the bay was called Yerba Buena. Yerba Buena means, "Good herb" in Spanish. It was founded in 1776, but renamed in 1846. Portsmouth Square in Chinatown was the location of the public square in Yerba Buena.',
-    'The color of the Golden Gate Bridge is called International Orange. It wasn\'t a color from the original list of options. It was the primer used to protect the steel for the bridge during transit and the architect loved it more than the other options, so he selected it as the official color.',
+    'There are a total of 50 named hills, most well known are Russian Hill, Nob Hill, and Twin Peaks.',
+    'San Francisco was called Yerba Buena, meaning "Good herb" in Spanish before it was renamed in 1846.',
+    'This was the color of the primer used to protect the steel for the bridge. Because of how well it looked, it was left.',
 ];
 
 
@@ -62,6 +62,7 @@ function startNewGame() {
     $("#questionNumber").text("Question #" + numberOfQuestion); 
     $("#answeredRightOrWrong").text("");
     $("#description").text("");
+    $("#pressKey").text("");
     clearTimer(); 
     clearInterval(timer2);
     timesPlayed++; 
@@ -83,7 +84,9 @@ function gameOver() {
     $("#answerRightOrWrong").text(" ");
     $("#description").text(" "); 
     $("#timer").empty();
-    $("#playAgainBtn").append("<button onclick='playAgain()'>Click to Play Again</button>");
+    $("#pressKey").text(" ");
+    $("#yourScore").text("");
+    $("#playAgainBtn").append("<br><button type='button' class='btn btn-info' onclick='playAgain()'>Click to Play Again</button>");
 }; 
 
 function playAgain() { 
@@ -172,13 +175,16 @@ function checkAnswer() {
         $('#description').text(descriptions[timesPlayed]);
         $('#questionInsert').text("");
         $('#answersInsert').text("");
+        $('#yourScore').text("Your score: " + score + "/5");
 
     } else {
         $('#answeredRightOrWrong').text("Wrong Answer"); 
         $('#description').text(descriptions[timesPlayed]);
         $('#questionInsert').text("");
         $('#answersInsert').text("");
+        $('#yourScore').text("Your score: " + score + "/5");
     }
+    $("#pressKey").text("(Press any key to continue)");
     shortTimer(); 
     clearTimer(); 
 }
