@@ -117,6 +117,8 @@ function decrement() {
     seconds--; 
     $("#timer").text("00:"+ seconds); 
     if (seconds <= 0) { 
+        timeOut();
+        clearInterval(timer2);
         clearTimer();
         shortTimer(); 
     }
@@ -125,6 +127,7 @@ function decrement() {
 //short timer for right/wrong answer: 
 function shortTimer() { 
     console.log("shortTimer");
+    clearInterval(timer);
     clearTimer(); 
     timer2 = setInterval(decrement2, 1000);
     document.addEventListener("keyup", startNewGame);
@@ -137,7 +140,6 @@ const moveToNextPage = function() {
     console.log("moveToNextPage");
     document.addEventListener("keyup", startNewGame);
     timerRun();
-    TimerRun();
     clearTimer();
 }
 
@@ -147,8 +149,8 @@ function decrement2() {
     seconds--; 
     $("#timer").text("00:"+ seconds); 
     if (seconds === 0) { 
+        timeOut(); 
         clearTimer(); 
-        startNewGame(); 
         timerRun(); 
     }
 }
@@ -161,6 +163,18 @@ function clearTimer() {
     $("#timer").text("00:" + seconds); 
 }
 
+//
+function timeOut() { 
+    $('#answeredRightOrWrong').text("You ran out of time!");
+        $('#description').text(descriptions[timesPlayed]);
+        $('#questionInsert').text("");
+        $('#answersInsert').text("");
+        $('#yourScore').text("Your score: " + score + "/5");
+        $("#pressKey").text("(Press any key to continue)");
+    clearInterval(timer2);
+    shortTimer(); 
+    clearTimer();
+}
 
 //event listener:
 $(document).on("click", ".btn", checkAnswer);
@@ -186,6 +200,7 @@ function checkAnswer() {
     }
     $("#pressKey").text("(Press any key to continue)");
     shortTimer(); 
+    clearInterval();
     clearTimer(); 
 }
 
